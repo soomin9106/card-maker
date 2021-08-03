@@ -9,13 +9,13 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Login from './components/login/login';
 
-function App() {
+function App({authService}) {
   return (
     <Router>
       <Switch>
         <Route path='/' exact>
           <div className={styles.app}>
-            <Login/>
+            <Login authService={authService}/>
           </div>
         </Route>
       </Switch>
