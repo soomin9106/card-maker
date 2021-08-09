@@ -5,9 +5,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
 import Login from './components/login/login';
+import Maker from './components/maker/maker';
 
 function App({authService}) {
   return (
@@ -16,6 +15,11 @@ function App({authService}) {
         <Route path='/' exact>
           <div className={styles.app}>
             <Login authService={authService}/>
+          </div>
+        </Route>
+        <Route path='/maker' exact>
+          <div>
+            <Maker authService={authService}/>
           </div>
         </Route>
       </Switch>

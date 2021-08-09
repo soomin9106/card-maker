@@ -2,11 +2,19 @@
 @value makerWhite from '../../common/colors.css';
 @value makerGreen from '../../common/colors.css';
 
+button{
+    outline: none;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .header{
     width:100%;
     padding : 1em;
     background: makerGreen;
     text-align: center;
+    position: relative;
 }
 
 .logo{
@@ -17,4 +25,14 @@
 .title{
     margin:0;
     color:makerWhite;
+}
+
+.logout{
+    position: absolute;
+    right: 1.5em;
+    top:1em;
+    padding:0.5em;
+    border-radius: 1.2rem;
+    border: 1px solid makerWhite;
+    color: makerWhite;
 }
