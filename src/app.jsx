@@ -18,7 +18,7 @@ function App({authService}) {
           </div>
         </Route>
         <Route path='/maker' exact>
-          <div>
+          <div className={styles.app}>
             <Maker authService={authService}/>
           </div>
         </Route>
