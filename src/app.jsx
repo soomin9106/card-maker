@@ -1,3 +1,4 @@
+import React,{useState,useEffect} from 'react';
 import styles from './app.module.css';
 import {
   BrowserRouter as Router,
@@ -8,7 +9,15 @@ import {
 import Login from './components/login/login';
 import Maker from './components/maker/maker';
 
-function App({authService}) {
+function App({authService, cards}) {
+  const [cardList,setCardList] = useState([]);
+
+  useEffect(() => {
+    cards
+    .getAll()
+    .then(cardList => setCardList(cardList));
+  },[cards]);
+
   return (
     <Router>
       <Switch>
@@ -19,7 +28,7 @@ function App({authService}) {
         </Route>
         <Route path='/maker' exact>
           <div className={styles.app}>
-            <Maker authService={authService}/>
+            <Maker authService={authService} cardList ={cardList}/>
           </div>
         </Route>
       </Switch>
