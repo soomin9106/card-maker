@@ -8,18 +8,18 @@ let cards = [
         email : "dream.coder.ellie@gmail.com",
         message : "Don't forget to code your dream",
         fileName:"ellie",
-        fileURL : "ellie.com",
+        fileURL : null,
     },
     {
         id:'2',
         name : "Bob",
         company : "Uber",
-        theme: "light",
+        theme: "colorful",
         title : "senior soft engineer",
         email : "bob@gmail.com",
         message : "I love coding",
         fileName:"bob",
-        fileURL : "bob.com",
+        fileURL : null,
     },
     {
         id:'3',
@@ -30,7 +30,7 @@ let cards = [
         email : "Chris@gmail.com",
         message : "Design your dream",
         fileName:"chris",
-        fileURL : "chris.com",
+        fileURL : null,
     },
 ]
 class Card {
