@@ -9,14 +9,7 @@ import {
 import Login from './components/login/login';
 import Maker from './components/maker/maker';
 
-function App({authService, cards}) {
-  const [cardList,setCardList] = useState([]);
-
-  useEffect(() => {
-    cards
-    .getAll()
-    .then(cardList => setCardList(cardList));
-  },[cards]);
+function App({authService}) {
 
   return (
     <Router>
@@ -28,7 +21,7 @@ function App({authService, cards}) {
         </Route>
         <Route path='/maker' exact>
           <div className={styles.app}>
-            <Maker authService={authService} cardList ={cardList}/>
+            <Maker authService={authService}/>
           </div>
         </Route>
       </Switch>
