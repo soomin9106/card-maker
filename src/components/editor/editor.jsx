@@ -4,13 +4,13 @@ import EditorItem from '../card_edit_form/editor_item';
 import CardAddForm from '../card_add_form/card_add_form';
 
 
-const Editor = ({cardList,addCard}) => {
+const Editor = ({cardList,addCard,updateCard,deleteCard}) => {
     return(
         <section className={styles.editor}>
             <h1 className={styles.title}> Card Maker </h1>
             <ul className={styles.editorList}>
-                {cardList.map(card => 
-                    (<EditorItem card={card} />)
+                {Object.keys(cardList).map(key => 
+                    (<EditorItem key={key} card={cardList[key]} updateCard={updateCard} deleteCard={deleteCard} />)
                 )}
                 <CardAddForm onAdd={addCard} />
             </ul>

@@ -2,8 +2,15 @@ import React from 'react';
 import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './editor_item.module.css';
+import { useRef } from 'react';
 
-const EditorItem = ({card}) => {
+const EditorItem = ({card,updateCard,deleteCard}) => {
+    const nameRef  = useRef();
+    const companyRef  = useRef();
+    const themeRef  = useRef();
+    const titleRef  = useRef();
+    const emailRef  = useRef();
+    const messageRef  = useRef();
     const {id,
         name,
         company,
@@ -13,19 +20,34 @@ const EditorItem = ({card}) => {
         message,
         fileName,
         fileURL} = card;
-    const onSubmit = () => {};
+    //delete card
+    const onSubmit = (event) => {
+       event.preventDefault();
+       deleteCard(card);
+    };
+    //update card
+    const onChange = (event) => {
+        if(event.currentTarget === null){
+            return;
+        }
+        event.preventDefault();
+        updateCard({
+            ...card,
+            [event.currentTarget.name] : event.currentTarget.value,
+        });
+    };
     return(
        <form className={styles.form}>
-           <input className={styles.input} type="text" name="name" value={name}></input>
-           <input className={styles.input} type="text" name="company" value={company}></input>
-           <select className={styles.select} name="theme" value={theme}>
-               <option value="light">Light</option>
-               <option value="dark">Dark</option>
-               <option value="colorful">Colorful</option>
+           <input ref={nameRef} onChange={onChange} className={styles.input} type="text" name="name" value={name}></input>
+           <input ref={companyRef} onChange={onChange} className={styles.input} type="text" name="company" value={company}></input>
+           <select ref={themeRef} onChange={onChange} className={styles.select} name="theme" value={theme}>
+               <option value="light">light</option>
+               <option value="dark">dark</option>
+               <option value="colorful">colorful</option>
            </select>
-           <input className={styles.input} type="text" name="title" value={title}></input>
-           <input className={styles.input} type="text" name="email" value={email}></input>
-           <textarea className={styles.textarea} name ="message" value={message}></textarea>
+           <input ref={titleRef} onChange={onChange} className={styles.input} type="text" name="title" value={title}></input>
+           <input ref={emailRef} onChange={onChange} className={styles.input} type="text" name="email" value={email}></input>
+           <textarea ref={messageRef} onChange={onChange} className={styles.textarea} name ="message" value={message}></textarea>
            <div className={styles.fileInput}>
                <ImageFileInput />
            </div>

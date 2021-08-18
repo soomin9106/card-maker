@@ -18,7 +18,7 @@ const CardAddForm = ({onAdd}) => {
             id: Date.now(),
             name :nameRef.current.value || '',
             company:companyRef.current.value || '',
-            theme:themeRef.current.value || '',
+            theme:themeRef.current.value,
             title:titleRef.current.value || '',
             email:emailRef.current.value || '',
             message:messageRef.current.value || '',
@@ -33,9 +33,9 @@ const CardAddForm = ({onAdd}) => {
             <input ref={nameRef} className={styles.input} type="text" name="name" placeholder="name" ></input>
             <input ref={companyRef} className={styles.input} type="text" name="company" placeholder="company" ></input>
             <select ref={themeRef} className={styles.select} name="theme">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="colorful">Colorful</option>
+                <option value="light">light</option>
+                <option value="dark">dark</option>
+                <option value="colorful">colorful</option>
             </select>
             <input ref={titleRef} className={styles.input} type="text" name="title" placeholder="title"></input>
             <input ref={emailRef} className={styles.input} type="text" name="email" placeholder="email"></input>
