@@ -7,7 +7,7 @@ import { useEffect,useState } from 'react';
 import Preview from '../preview/preview';
 import Editor from '../editor/editor';
 
-const Maker = ({authService}) => {
+const Maker = ({FileInput, authService}) => {
     const [cardList,setCardList] = useState({
       '1':{
         id:'1',
@@ -74,7 +74,7 @@ const Maker = ({authService}) => {
         <section className={styles.maker}>
             <Header onLogout={onLogout}/>
             <div className={styles.container}>
-                <Editor cardList={cardList} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard}/>
+                <Editor FileInput={FileInput} cardList={cardList} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard}/>
                 <Preview cardList={cardList}/>
             </div>
             <Footer/>
