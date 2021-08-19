@@ -18,7 +18,7 @@ const EditorItem = ({FileInput,card,updateCard,deleteCard}) => {
         email,
         message,
         fileName,
-        fileURL} = card;
+        } = card;
     //delete card
     const onSubmit = (event) => {
        event.preventDefault();
