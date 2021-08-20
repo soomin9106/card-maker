@@ -9,7 +9,7 @@ import {
 import Login from './components/login/login';
 import Maker from './components/maker/maker';
 
-function App({FileInput , authService}) {
+function App({FileInput , authService, cardRepository}) {
 
   return (
     <Router>
@@ -21,7 +21,7 @@ function App({FileInput , authService}) {
         </Route>
         <Route path='/maker' exact>
           <div className={styles.app}>
-            <Maker authService={authService} FileInput={FileInput}/>
+            <Maker authService={authService} cardRepository ={cardRepository} FileInput={FileInput}/>
           </div>
         </Route>
       </Switch>
