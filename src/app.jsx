@@ -1,10 +1,9 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import styles from './app.module.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Login from './components/login/login';
 import Maker from './components/maker/maker';

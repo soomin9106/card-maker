@@ -10,7 +10,7 @@ const EditorItem = ({FileInput,card,updateCard,deleteCard}) => {
     const titleRef  = useRef();
     const emailRef  = useRef();
     const messageRef  = useRef();
-    const {id,
+    const {
         name,
         company,
         theme,
