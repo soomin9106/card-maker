@@ -3,7 +3,7 @@ import styles from './maker.module.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import { useHistory } from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useCallback} from 'react';
 import Preview from '../preview/preview';
 import Editor from '../editor/editor';
 
@@ -12,10 +12,15 @@ const Maker = ({FileInput, authService,cardRepository}) => {
   const historyState = history?.location?.state;
   const [cardList,setCardList] = useState({});
   const [userId,setUserId] = useState(historyState && historyState.id);
-    
-    const onLogout = () => {
+  
+  //이 함수 때문에 header에서 memo 를 해도 re-render 가 되고 있던 거였음
+  //useCallback 를 사용 
+  //스테이트나 props 가 변경 되어도 동일하게 재사용한다는 의미 
+  //=> authService 가 변경이 되어도 예전에 캡쳐해둔 걸로 사용될 것임
+  //authService 를 디펜던시로 전달!
+  const onLogout = useCallback(() => {
         authService.logout();
-    };
+  },[authService]); 
 
     useEffect(()=>{
       if(!userId){
